@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <title>Web App</title>
+</head>
+<body>
+            <!--SIDEBAR-->
+            <div class="sidebar" id="menuBar">
+                <div class="sidebar-brand">
+                    <img src="./images/logo.png" alt="Lora Web App"/>
+                </div>
+                <div class="sidebar-menu">
+                    <ul>
+                        <li>
+                            <a href="#"><span class="material-symbols-outlined">dashboard</span><span>Dashboard</span></a>
+                        </li>
+                        <li>
+                            <a href="#"><span class="material-symbols-outlined">group</span><span>Assignee</span></a>
+                        </li>
+                        <li>
+                            <a href="#"><span class="material-symbols-outlined">comment</span><span>Chat</span></a>
+                        </li>
+                        <li>
+                            <a href="#"><span class="material-symbols-outlined">add_task</span><span>Tasks</span></a>
+                        </li>
+                        <li>
+                            <a href="#"><span class="material-symbols-outlined">settings</span><span>Settings</span></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="version">
+                <p>Version 1.0</p>
+                </div>
+            </div>
+            <div class="main" id="mainBar">
+                <!--HEADER-->
+                <header>
+                    <div class="page-info">
+                        <span class="material-symbols-outlined" onclick="toggleBar()">menu_open</span>
+                        <h3>Lora Packages</h3>
+                    </div>
+                    <div class="nav">
+                    <div class="search-wrapper">
+                        <input type="search" placeholder="Search..."/>
+                        <span class="material-symbols-outlined">search</span>
+                    </div>
+                    <span class="material-symbols-outlined" id="bell">notifications</span>
+                    <!--USER DROPDOWN-->
+                    <div class="user-wrapper">
+                          <div class="user-name">
+                           <h5>William Marshal</h5>
+                           <small>Parents (Father)</small>
+                          </div>
+                           <img src="./images/hero2.png" width="35px" height="35px" alt="">
+                           <span class="material-symbols-outlined" onclick="toggleMenu()">expand_more</span>
+                        <div class="sub-menu-wrapper" id="subMenu">
+                            <div class="sub-menu">
+                                <div class="user-info">
+                                    <a href="#">
+                                        <p>Edit Profile</p>
+                                    </a>
+                                    <hr>
+                                    <a href="#">
+                                        <p>Log Out</p>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>   
+                    </div>
+                    </div>
+                </header>
+                <main id="bg-clr">
+                    <div class="grid1">
+                        <div class="lora">
+                            <h2>Lora Packages</h2>
+                            <p>World's best website for adults and minors...</p>
+                            <div class="butns">
+                                <button id="but">MONTHLY</button>
+                                <button id="but">YEARLY</button>
+                            </div>
+                        </div>
+                        <div class="packages">
+                            <div class="caard" id="olive">
+                                <img src="./images/single.png" width="30px" alt="">
+                                <p>Full 1 Parental</br>Access With <span>1</br> Assignee</span></p>
+                                <h3>$17.99</h3>
+                                <button id="buy">Buy Now</button>
+                            </div>
+                            <div class="caard" id="purple">
+                                <img src="./images/two.png" width="42px" alt="">
+                                <p>Full 1 Parental</br>Access With <span>2</br> Assignee</span></p>
+                                <h3>$24.99</h3>
+                                <button id="buy">Buy Now</button>
+                            </div>
+                            <div class="caard" id="orange">
+                                <img src="./images/three.png" width="50px" alt="">
+                                <p>Full 1 Parental</br>Access With <span>3</br> Assignee</span></p>
+                                <h3>$31.99</h3>
+                                <button id="buy">Buy Now</button>
+                            </div>
+                            <div class="caard" id="green">
+                                <img src="./images/four.png" width="65px" alt="">
+                                <p>Full 1 Parental</br>Access With <span>4</br> Assignee</span></p>
+                                <h3>$38.99</h3>
+                                <button id="buy">Buy Now</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- POPUP -->
+
+
+                    <dialog class="modal" id="modal">
+                        <div class="popup" id="myForm">
+                            <div class="children">
+                                <div class="heading">
+                                <h5>Lora Packages</h5>
+                                <h3>Buy 3 Assignees Package</h3>
+                                </div>
+                            <button class="close-btn" id="close-modal">X</button>
+                            </div>
+                            <hr>
+                            <div class="form-element">
+                                <div class="element">
+                            <label for="name">Card Holder Name<i>*</i></br><span id="mins">e.g. William Marshal</span></label>
+                            <input type="text" id="name" placeholder="Enter name" required>
+                                </div>
+                                <div class="element">
+                                    <label for="task">Card CVV<i>*</i></br><span id="mins">e.g. 123</span></label>
+                                    <input type="tel" placeholder="Enter CVV no.">
+                                </div>
+                                <div class="element">
+                                    <div class="timer">
+                                        <label for="timer">Card Expiry<i>*</i></br><span id="mins">e.g. 12/22</span></label>
+                                    </div>
+                                    <div class="tmr-btn">
+                                        <input type="date" id="time" value="12/22/2022">
+                                    </div>
+                                </div>
+                            </div>
+                            <hr id="hr">
+                            <div class="bttns">
+                            <button class="bttn">Cancel</button>
+                            <button class="bttn">Buy</button>
+                            </div>
+                        </div>
+                        </dialog>
+                </main>
+            </div>
+<footer>
+</footer>
+
+                    <!--JAVASCRIPT-->
+
+                    <script>
+                        const modal = document.querySelector('.modal');
+                        const openModal = document.querySelectorAll('#buy');
+                        const closeModal = document.querySelector('#close-modal');
+            
+                        openModal.forEach(element => {
+                            element.addEventListener('click', (event) => {
+                            modal.showModal();
+                        })
+                        });
+                        
+                        closeModal.addEventListener('click', () => {
+                            modal.close();
+                        })
+                    </script>           
+                    
+        <script>
+            let subMenu = document.getElementById("subMenu");
+
+            function toggleMenu(){
+                subMenu.classList.toggle("open-menu");
+            }
+        </script>
+
+        <script>
+            let menuBar = document.getElementById("menuBar");
+            let mainBar = document.getElementById("mainBar");
+
+            function toggleBar(){
+                menuBar.classList.toggle("open-bar");
+                mainBar.classList.toggle("open-bar2");
+            }
+        </script>
+</body>
+</html>

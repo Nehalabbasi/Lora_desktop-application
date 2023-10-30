@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <title>Lora Web App</title>
+</head>
+<body>
+        <!--SIDEBAR-->
+        <div class="sidebar" id="menuBar">
+            <div class="sidebar-brand">
+                <img src="./images/logo.png" alt="Lora Web App"/>
+            </div>
+            <div class="sidebar-menu">
+                <ul>
+                    <li>
+                        <a href="#"><span class="material-symbols-outlined">dashboard</span><span>Dashboard</span></a>
+                    </li>
+                    <li>
+                        <a href="#"><span class="material-symbols-outlined">group</span><span>Assignee</span></a>
+                    </li>
+                    <li>
+                        <a href="#"><span class="material-symbols-outlined">comment</span><span>Chat</span></a>
+                    </li>
+                    <li>
+                        <a href="#"><span class="material-symbols-outlined">add_task</span><span>Tasks</span></a>
+                    </li>
+                    <li>
+                        <a href="#"><span class="material-symbols-outlined">settings</span><span>Settings</span></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="version">
+            <p>Version 1.0</p>
+            </div>
+        </div>
+        <div class="main" id="mainBar">
+            <!--HEADER-->
+            <header>
+                <div class="page-info">
+                    <span class="material-symbols-outlined" onclick="toggleBar()">menu_open</span>
+                    <h3>Dashboard</h3>
+                </div>
+                <div class="nav">
+                <div class="search-wrapper">
+                    <input type="search" placeholder="Search..."/>
+                    <span class="material-symbols-outlined">search</span>
+                </div>
+                <span class="material-symbols-outlined" id="bell">notifications</span>
+                <!--USER DROPDOWN-->
+                <div class="user-wrapper">
+                      <div class="user-name">
+                       <h5>William Marshal</h5>
+                       <small>Parents (Father)</small>
+                      </div>
+                       <img src="./images/img1.jpg" width="35px" height="35px" alt="">
+                       <span class="material-symbols-outlined" onclick="toggleMenu()">expand_more</span>
+                    <div class="sub-menu-wrapper" id="subMenu">
+                        <div class="sub-menu">
+                            <div class="user-info">
+                                <a href="#">
+                                    <p>Edit Profile</p>
+                                </a>
+                                <hr>
+                                <a href="#">
+                                    <p>Log Out</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>   
+                </div>
+                </div>
+            </header>
+
+            <main>
+                <!--CARDS-->
+                <div class="cards">
+                    <div class="card-one" id="one">
+                        <span class="material-symbols-outlined">add_task</span>
+                        <div class="text">
+                        <h2>120 <span class="material-symbols-outlined">trending_down</span></h2>
+                        <h6>TASKS INCOMPLETE</h6>
+                        </div>
+                    </div>
+                    <div class="card-one" id="two">
+                        <span class="material-symbols-outlined">add_task</span>
+                        <div class="text">
+                        <h2>20 <span class="material-symbols-outlined">trending_up</span></h2>
+                        <h6>TASKS PENDING</h6>
+                        </div>
+                    </div>
+                    <div class="card-one" id="three">
+                        <span class="material-symbols-outlined">add_task</span>
+                        <div class="text">
+                        <h2>245 <span class="material-symbols-outlined">trending_up</span></h2>
+                        <h6>TASKS DONE</h6>
+                        </div>
+                    </div>
+                    <div class="card-one" id="four">
+                        <span class="material-symbols-outlined">add_task</span>
+                        <div class="text">
+                        <h2>19 <span class="material-symbols-outlined">trending_down</span></h2>
+                        <h6>TASKS SUSPEND</h6>
+                        </div>
+                    </div>
+                </div>
+
+                <!--LINE CHART-->
+
+                  <div class="chartBox">
+                        <h3>Tasks tracking</h3>
+                      <canvas id="myChart"></canvas>
+                  </div>
+                  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.3.2/chart.js"></script>
+                  <script>
+                    const taskData = [
+                        { month: 'JAN', tasks: { INCOMPLETE: 120, PENDING: 20, DONE: 40, SUSPENDED: 19 }},
+                        { month: 'FEB', tasks: { INCOMPLETE: 150, PENDING: 50, DONE: 70, SUSPENDED: 50 }},
+                        { month: 'MAR', tasks: { INCOMPLETE: 90, PENDING: 110, DONE: 120, SUSPENDED: 75 }},
+                        { month: 'APR', tasks: { INCOMPLETE: 30, PENDING: 170, DONE: 50, SUSPENDED: 8 }},
+                        { month: 'MAY', tasks: { INCOMPLETE: 60, PENDING: 140, DONE: 80, SUSPENDED: 98 }},
+                        { month: 'JUN', tasks: { INCOMPLETE: 180, PENDING: 50, DONE: 150, SUSPENDED: 46 }},
+                        { month: 'JUL', tasks: { INCOMPLETE: 40, PENDING: 80, DONE: 180, SUSPENDED: 87 }},
+                        { month: 'AUG', tasks: { INCOMPLETE: 70, PENDING: 140, DONE: 50, SUSPENDED: 26 }},
+                        { month: 'SEP', tasks: { INCOMPLETE: 145, PENDING: 10, DONE: 160, SUSPENDED: 94 }},
+                        { month: 'OCT', tasks: { INCOMPLETE: 133, PENDING: 50, DONE: 93, SUSPENDED: 56 }},
+                        { month: 'NOV', tasks: { INCOMPLETE: 176, PENDING: 20, DONE: 67, SUSPENDED: 130 }},
+                        { month: 'DEC', tasks: { INCOMPLETE: 10, PENDING: 60, DONE: 74, SUSPENDED: 34 }}
+                    ];
+                  // setup 
+                  const data = {
+                    datasets: [{
+                      label: 'INCOMPLETE',
+                      data: taskData,
+                      borderWidth: '2',
+                      pointRadius: '0',
+                      backgroundColor: '#ef481e',
+                      borderColor: '#ef481e',
+                      tension: 0.4,
+                      parsing: {
+                        xAxisKey: 'month',
+                        yAxisKey: 'tasks.INCOMPLETE'
+                      }
+                    },{
+                      label: 'PENDING',
+                      data: taskData,
+                      borderWidth: '1.5',
+                      pointRadius: '0',
+                      backgroundColor: '#eda225',
+                      borderColor: '#eda225',
+                      tension: 0.4,
+                      parsing: {
+                        xAxisKey: 'month',
+                        yAxisKey: 'tasks.PENDING'
+                      }
+                    },{
+                      label: 'DONE',
+                      data: taskData,
+                      borderWidth: '2',
+                      pointRadius: '0',
+                      backgroundColor: '#9ed732',
+                      borderColor: '#9ed732',
+                      tension: 0.4,
+                      parsing: {
+                        xAxisKey: 'month',
+                        yAxisKey: 'tasks.DONE'
+                      }
+                    },{
+                      label: 'SUSPENDED',
+                      data: taskData,
+                      borderWidth: '1',
+                      pointRadius: '0',
+                      backgroundColor: '#e1d427',
+                      borderColor: '#e1d427',
+                      tension: 0.4,
+                      parsing: {
+                        xAxisKey: 'month',
+                        yAxisKey: 'tasks.SUSPENDED'
+                      }
+                    }]
+                  };
+              
+                  // config 
+                  const config = {
+                    type: 'line',
+                    data,
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                      scales: {
+                        y: {
+                          display: false,  
+                          beginAtZero: true
+                        }
+                      }
+                    }
+                  };
+              
+                  // rendering Chart
+                  const myChart = new Chart(
+                    document.getElementById('myChart'),
+                    config
+                  );
+                  </script>
+
+                  <!--CARDS-2-->
+
+                  <div class="cards2">
+                    <div class="card-two" id="one">
+                      <img src="./images/profile.jpg" width="100px" height="100px"/>
+                      <p>ASSINGEE #1</p>
+                        <div class="text">
+                        <h5>Matthew Joseph <span class="material-symbols-outlined">edit</span></h5>
+                        <h6>14 years old</h6>
+                        <button id="addTask">+ Add Task</button>
+                        </div>
+                    </div>
+                    <div class="card-two" id="two">
+                      <img src="./images/profile2.jpg" width="100px" height="100px"/>
+                      <p>ASSINGEE #2</p>
+                        <div class="text">
+                        <h5>Killing Joseph <span class="material-symbols-outlined">edit</span></h5>
+                        <h6>12 years old</h6>
+                        <button id="addTask">+ Add Task</button>
+                        </div>
+                    </div>
+                    <div class="card-two" id="three">
+                      <img src="./images/profile3.jpg" width="100px" height="100px"/>
+                      <p>ASSINGEE #3</p>
+                        <div class="text">
+                        <h5>Elena G. Joseph <span class="material-symbols-outlined">edit</span></h5>
+                        <h6>13 years old</h6>
+                        <button id="addTask">+ Add Task</button>
+                        </div>
+                    </div>
+                  </div>
+            </main>
+        </div>
+
+
+        <!--JAVASCRIPT-->
+        <script>
+            let subMenu = document.getElementById("subMenu");
+
+            function toggleMenu(){
+                subMenu.classList.toggle("open-menu");
+            }
+        </script>
+        <script>
+            let menuBar = document.getElementById("menuBar");
+            let mainBar = document.getElementById("mainBar");
+
+            function toggleBar(){
+                menuBar.classList.toggle("open-bar");
+                mainBar.classList.toggle("open-bar2");
+            }
+        </script>
+</body>
+</html>

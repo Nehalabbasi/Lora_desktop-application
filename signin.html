@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <title>Lora Web App</title>
+</head>
+<body>
+    <div class="main">
+    <div class="grid">
+        <div class="child1">
+            <img src="./images/logo.png" width="150px" alt="">
+            <div>
+            <h1>Ladder of The</br> Remote Access</h1>
+            <p>A sophisticated, yet easy way to communicate within</br>a family unit where parents get the support they need</br>to convey messages to assignee in the household for</br>task purpose, etc.</p>
+            </div>
+            <button id="signup">Sign Up</button>
+            
+        </div>
+        <div class="child2">
+            
+                <h1>Sign In</h1>
+                <p>Hey, enter your details to get</br>sign in to your account</p>
+                <input type="email" id="email" placeholder="Enter username or email address" required>
+            <div class="psswrd">
+                <input type="password" id="password" placeholder="Enter password" required>
+                <span>
+                <i class="material-symbols-outlined" id="eye" onclick="toggle()">visibility_off</i>
+            </span>
+                </div>
+                <button id="trouble">Having trouble in sign in?</button>
+                <button id="signin">Sign In</button>
+                <img id="img1" src="./images/Vector.png" width="100px" alt="">
+                <img id="img2" src="./images/Vector2.png" width="100px" alt="">
+        </div>
+    </div>
+    </div>
+
+    <!--JAVASCRIPT-->
+
+    <script>
+        function toggle() {
+        let x = document.getElementById("password");
+        let y = document.getElementById("eye");
+        if (x.type === "password") {
+          x.type = "text";
+          y.style.color = '#3b3cfd';
+        } else {
+          x.type = "password";
+          y.style.color = '#81818d';
+        }
+      }
+    </script>
+</body>
+</html>

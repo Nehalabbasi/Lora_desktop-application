@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css">
+    <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+    <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+    <script src="./chosen_v1.8.7/chosen.jquery.js"></script>
+    <link rel="stylesheet" href="./chosen_v1.8.7/chosen.css">
+    <title>Lora Web App</title>
+</head>
+<body>
+            <!--SIDEBAR-->
+            <div class="sidebar" id="menuBar">
+                <div class="sidebar-brand">
+                    <img src="./images/logo.png" alt="Lora Web App"/>
+                </div>
+                <div class="sidebar-menu">
+                    <ul>
+                        <li>
+                            <a href="#"><span class="material-symbols-outlined">dashboard</span><span>Dashboard</span></a>
+                        </li>
+                        <li>
+                            <a href="#"><span class="material-symbols-outlined">group</span><span>Assignee</span></a>
+                        </li>
+                        <li>
+                            <a href="#"><span class="material-symbols-outlined">comment</span><span>Chat</span></a>
+                        </li>
+                        <li>
+                            <a href="#"><span class="material-symbols-outlined">add_task</span><span>Tasks</span></a>
+                        </li>
+                        <li>
+                            <a href="#"><span class="material-symbols-outlined">settings</span><span>Settings</span></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="version">
+                <p>Version 1.0</p>
+                </div>
+            </div>
+            <div class="main" id="mainBar">
+                <!--HEADER-->
+                <header>
+                    <div class="page-info">
+                        <span class="material-symbols-outlined" onclick="toggleBar()">menu_open</span>
+                        <h3>Children</h3>
+                    </div>
+                    <div class="nav">
+                    <div class="search-wrapper">
+                        <input type="search" placeholder="Search..."/>
+                        <span class="material-symbols-outlined">search</span>
+                    </div>
+                    <span class="material-symbols-outlined" id="bell">notifications</span>
+                    <!--USER DROPDOWN-->
+                    <div class="user-wrapper">
+                          <div class="user-name">
+                           <h5>William Marshal</h5>
+                           <small>Parents (Father)</small>
+                          </div>
+                           <img src="./images/hero1.png" width="35px" height="35px" alt="">
+                           <span class="material-symbols-outlined" onclick="toggleMenu()">expand_more</span>
+                        <div class="sub-menu-wrapper" id="subMenu">
+                            <div class="sub-menu">
+                                <div class="user-info">
+                                    <a href="#">
+                                        <p>Edit Profile</p>
+                                    </a>
+                                    <hr>
+                                    <a href="#">
+                                        <p>Log Out</p>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>   
+                    </div>
+                    </div>
+                </header>
+                <main>
+                 <div class="page2">
+                    <div class="crd" id="crd1">
+                        <div class="info">
+                        <img src="./images/hero1.png" width="33%" height="33%"/>
+                        <p id="assign1">ASSINGEE #1</p>
+                          <div class="text">
+                          <h5>Matthew Joseph <a class="material-symbols-outlined" id="edit">edit</a></h5>
+                          <h6>14 years old</h6>
+                          </div>
+                          <div class="button">
+                          <button class="bton" id="btn1"><span class="material-symbols-outlined">chat</span> Chat</button>
+                          <button class="bton" id="btn"><span class="material-symbols-outlined">person</span> Child Detail</button>
+                          </div>
+                        </div>
+                    </br>
+                          <hr>
+                          <div class="sec2">
+                            <div class="task">
+                            <h3>Task Inprogress</h3>
+                            <button id="addNewTask">+ Add New Task</button>
+                            </div>
+                            <div class="microcards">
+                                <p id="p1">Working</p>
+                                <p id="p2">Stopped</p>
+                                <p id="p3">Completed</p>
+                            </div>
+                            <div class="minicards">
+                            <h4 id="c1"><img src="./images/grocery.png" alt=""> Grocery Store <span class="time"> 20 mins</span></h4>
+                                <div class="player">
+                            <h4><img src="./images/blanket.png" alt=""> Fold Blankets<span class="time"> 5 mins</span></h4>
+                            <p>I will complete the task before you get back home.</p>
+                                    <div class="span">
+                            <span class="material-symbols-outlined">chat</span>
+                            <span class="material-symbols-outlined">attachment</span>
+                            <span class="material-symbols-outlined">task_alt</span>
+                                    </div>
+                                    <hr>
+                                    <div class="stopwatch">
+                                    <h3>00:11:28</h3>
+                                    <div class="buttons">
+                                    <button><span class="material-symbols-outlined">pause</span></button>
+                                    <button><span class="material-symbols-outlined" id="stp">stop</span></button>
+                                    <button><span class="material-symbols-outlined">refresh</span></button>
+                                    </div>
+                                    </div>
+                               </div>
+                            <h4 id="c2"><img src="./images/double-bed.png" alt=""> Fix Bed <span class="time"> 10 mins</span></h4>
+                            </div>
+                          </div>
+                          </div>
+                          <!--CARD 2-->
+
+                    <div class="crd" id="crd2">
+                        <div class="info">
+                        <img src="./images/hero2.png" width="33%" height="33%"/>
+                        <p id="assign2">ASSINGEE #2</p>
+                          <div class="text">
+                          <h5>Killing Joseph <a class="material-symbols-outlined" id="edit">edit</a></h5>
+                          <h6>12 years old</h6>
+                          </div>
+                          <div class="button">
+                          <button class="bton" id="btn1"><span class="material-symbols-outlined">chat</span> Chat</button>
+                          <button class="bton" id="btn"><span class="material-symbols-outlined">person</span> Child Detail</button>
+                          </div>
+                        </div>
+                    </br>
+                          <hr>
+                          <div class="sec2">
+                            <div class="task">
+                            <h3>Task Inprogress</h3>
+                            <button id="addNewTask">+ Add New Task</button>
+                            </div>
+                            <div class="microcards">
+                                <p id="p1">Working</p>
+                                <p id="p2">Stopped</p>
+                                <p id="p3">Completed</p>
+                            </div>
+                            <div class="minicards">
+                            <h4 id="c1"><img src="./images/grocery.png" alt=""> Grocery Store <span class="time"> 20 mins</span></h4>
+                            <h4 id="c1"><img src="./images/film-reel.png" alt=""> Movies <span class="time"> 5 mins</span></h4>
+                            <h4 id="c2"><img src="./images/double-bed.png" alt=""> Fix Bed <span class="time"> 20 mins</span></h4>
+                            <h4 id="c2"><img src="./images/clean-dishes.png" alt=""> Wash Dishes <span class="time"> Personalize</span></h4>
+                            </div>
+                          </div>
+                          </div>
+                          <div class="blank-crd" id="crd3">
+                            <span id="addNew" class="material-symbols-outlined">person_add</span>
+                            <h5 id="addNew">Add Assignee</h5>
+                          </div>
+                 </div>
+
+
+                        <!--POPUP-1-->
+
+
+                        <dialog class="modal" id="modal">
+                        <div class="popup" id="myForm">
+                            <div class="children">
+                                <div class="heading">
+                                <h5>Children</h5>
+                                <h3>Create New Task</h3>
+                                </div>
+                            <button class="close-btn" id="close-modal">X</button>
+                            </div>
+                            <hr>
+                            <div class="form-element">
+                                <div class="element">
+                            <label for="name">Task Name<i>*</i></br><span id="mins">e.g. William Marshal</span></label>
+                            <input type="text" id="name" placeholder="Enter name" required>
+                                </div>
+                                <div class="element">
+                                    <label for="task">Task Type</br><span id="mins">e.g. List, Schedule, Grocery List</span></label>
+                                    <select name="task" id="task">
+                                        <option value="1">Task List</option>
+                                        <option value="2">Grocery</option>
+                                        <option value="3">Schedule</option>
+                                    </select>
+                                </div>
+                                <div class="element">
+                                    <label for="task2">Task</br><span id="mins">e.g. Fix bed, Fold Blankets...</span></label>
+                                    <div class="task2">
+                                        <select multiple id="chzn" data-placeholder="Select your task">
+                                            <option value="1" selected>Grocery Store</option>
+                                            <option value="2">Movies</option>
+                                            <option value="3">Fix Bed</option>
+                                            <option value="4">Wash Dishes</option>
+                                            <option value="5">Fold Blankets</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="element">
+                                    <div class="timer">
+                                        <label for="timer">Timer</br><span id="mins">e.g. 20 mins remaining</span></label>
+                                    </div>
+                                    <div class="tmr-btn">
+                                        <label class="switch"><input type="checkbox"/>
+                                            <div></div>
+                                        </label>
+                                        <input type="text" id="time" placeholder="Enter time">
+                                    </div>
+                                </div>
+                                <div class="element">
+                                    <label for="describe">Description</br><span id="mins">e.g. about assignee</span></label>
+                                <textarea id="describe" placeholder="Write Here..." rows="4" maxlength="150"></textarea>
+                                </div>
+                            </div>
+                            <hr id="hr">
+                            <div class="bttns">
+                            <button class="bttn">Cancel</button>
+                            <button class="bttn">Create</button>
+                            </div>
+                        </div>
+                        </dialog>
+
+                        <!--POPUP-2-->
+
+                        <dialog class="modal1" id="modal1">
+                            <div class="popup" id="myForm">
+                                <div class="children">
+                                    <div class="heading">
+                                    <h5>Children</h5>
+                                    <h3>Create New Assignee</h3>
+                                    </div>
+                                <button class="close-btn" id="close-modall">X</button>
+                                </div>
+                                <hr>
+                                <div class="form-element">
+                                    <div class="element">
+                                <label for="name">Full Name<i>*</i></br><span id="mins">e.g. William Marshal</span></label>
+                                <input type="text" id="name" placeholder="Enter name" required>
+                                    </div>
+                                    <div class="element">
+                                        <label for="task">Age<i>*</i></br><span id="mins">e.g. 14 years old</span></label>
+                                            <input list="age" name="age" id="choose" placeholder="Enter or choose age" required>
+                                            <datalist id="age">
+                                              <option value="10 years old">
+                                              <option value="12 years old">
+                                              <option value="13 years old">
+                                              <option value="14 years old">
+                                              <option value="15 years old">
+                                            </datalist>
+                                    </div>
+                                    <div class="element">
+                                        <label for="task">Gender<i>*</i></br><span id="mins">e.g. Male/Female/others</span></label>
+                                            <input list="gender" name="gender" id="choose" placeholder="Enter or choose gender" required>
+                                            <datalist id="gender">
+                                              <option value="Male">
+                                              <option value="Female">
+                                              <option value="Others">
+                                            </datalist>
+                                    </div>
+                                    <div class="element">
+                                        <label for="task">Need accommodation(s)?</br><span id="mins">e.g. Physical/Intellectual/Mental</span></label>
+                                            <input list="need" name="need" id="choose" placeholder="Choose Need accommodation(s) if any">
+                                            <datalist id="need">
+                                              <option value="Physical">
+                                              <option value="Intellectual">
+                                              <option value="Mental">
+                                            </datalist>
+                                    </div>
+                                    <div class="element">
+                                        <label for="task">Color tab<i>*</i></br><span id="mins">e.g. Red, Green, Orange</span></label>
+                                            <input list="color" name="color" id="choose" placeholder="Choose your color" required>
+                                            <datalist id="color">
+                                              <option value="Red">
+                                              <option value="Green">
+                                              <option value="Orange">
+                                              <option value="Yello">
+                                              <option value="Brown">
+                                              <option value="Purple">  
+                                            </datalist>
+                                    </div>
+                                    <div class="element">
+                                        <label for="describe">Description</br><span id="mins">e.g. about assignee</span></label>
+                                    <textarea id="describe" placeholder="Write Here..." rows="4" maxlength="150"></textarea>
+                                    </div>
+                                </div>
+                                <hr id="hr">
+                                <div class="bttns">
+                                <button class="bttn">Cancel</button>
+                                <button class="bttn">Create</button>
+                                </div>
+                            </div>
+                            </dialog>
+
+                          <!--POPUP-3-->
+
+                          <dialog class="modal2" id="modal2">
+                            <div class="popup" id="myForm">
+                                <div class="children">
+                                    <div class="heading">
+                                    <h5>Children</h5>
+                                    <h3>Create New Assignee</h3>
+                                    </div>
+                                <button class="close-btn" id="close-modal2">X</button>
+                                </div>
+                                <hr>
+                                <div class="view-assign">
+                                    <div class="image-col">
+                                        <img src="./images/hero1.png" width="100%" height="100%" alt="">
+                                    </div>
+                                    <div class="content-col">
+
+                                    </div>
+                                </div>
+                                <hr id="hr">
+                                <div class="bttns">
+                                <button class="bttn">Cancel</button>
+                                <button class="bttn">Create</button>
+                                </div>
+                            </div>
+                            </dialog>
+                            
+                </main>
+            </div>
+<footer>
+</footer>
+                    <!--JAVASCRIPT-->
+
+                    <script>
+                        const modal2 = document.querySelector('.modal2');
+                        const openModal2 = document.querySelectorAll('#btn');
+                        const closeModal2 = document.querySelector('#close-modal2');
+              
+                        openModal2.forEach(element => {
+                            element.addEventListener('click', (event) => {
+                            modal2.showModal();
+                        })
+                        });
+                        
+                        closeModal2.addEventListener('click', () => {
+                            modal2.close();
+                        })
+                    </script>
+
+                    <script>
+                        const modal1 = document.querySelector('.modal1');
+                        const openModall = document.querySelectorAll('#addNew');
+                        const closeModall = document.querySelector('#close-modall');
+              
+                        openModall.forEach(element => {
+                            element.addEventListener('click', (event) => {
+                            modal1.showModal();
+                        })
+                        });
+                        
+                        closeModall.addEventListener('click', () => {
+                            modal1.close();
+                        })
+                    </script>
+
+        <script>
+            $(function(){
+                $("#chzn").chosen({
+                    width: "100%"
+                });
+            });
+        </script>
+
+        <script>
+            const modal = document.querySelector('.modal');
+            const openModal = document.querySelectorAll('#addNewTask');
+            const closeModal = document.querySelector('#close-modal');
+
+            openModal.forEach(element => {
+                element.addEventListener('click', (event) => {
+                modal.showModal();
+            })
+            });
+            
+            closeModal.addEventListener('click', () => {
+                modal.close();
+            })
+        </script>
+    
+        <script>
+            let subMenu = document.getElementById("subMenu");
+
+            function toggleMenu(){
+                subMenu.classList.toggle("open-menu");
+            }
+        </script>
+
+        <script>
+            let menuBar = document.getElementById("menuBar");
+            let mainBar = document.getElementById("mainBar");
+
+            function toggleBar(){
+                menuBar.classList.toggle("open-bar");
+                mainBar.classList.toggle("open-bar2");
+            }
+        </script>
+</body>
+</html>
